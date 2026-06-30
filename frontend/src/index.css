@@ -1,0 +1,141 @@
+@import url('https://googleapis.com');
+@import url('https://fontshare.com[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #04050d;
+  --bg-surface: rgba(255, 255, 255, 0.03);
+  --bg-elevated: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-active: #4d5bff;
+  --text-primary: #ffffff;
+  --text-secondary: #f1f5f9;
+  --text-tertiary: #cbd5e1;
+  --accent-primary: #4d5bff;
+  --accent-cyan: #00e5ff;
+  --accent-success: #00ff94;
+  --accent-warning: #ffb000;
+  --accent-error: #ff2a5f;
+}
+
+* { 
+  box-sizing: border-box; 
+}
+
+@keyframes slowAmbientShift {
+  0%, 100% { background-size: 200% 200%; background-position: left top; }
+  50% { background-size: 230% 230%; background-position: right bottom; }
+}
+
+html, body, #root {
+  min-height: 100vh !important;
+  color: var(--text-primary);
+  font-family: 'Satoshi', 'Cabinet Grotesk', system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+
+  /* Smooth, dark velvet-purple gradient backdrop */
+  background: linear-gradient(
+    145deg, 
+    #050614 0%, 
+    /* #0c0c2a 30%, 
+    #1f113a 60%, 
+    #360b33 85%,  */
+     #0a0a22 20%, 
+    #170c2e 45%, 
+    #3b0c36 70%, 
+    #4f0840 90%,
+    #05040e 100%
+  ) !important;
+  background-color: #04050d !important;
+  animation: slowAmbientShift 20s ease-in-out infinite;
+}
+
+body { 
+  overflow-x: hidden; 
+  position: relative; 
+}
+
+/* Master Layout Transparency Release Matrix */
+#root, .App, #root > div, .font-body, main, [data-testid="app-shell"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* 💎 True Frost-Glass Translucent Overrides: Reveals the full gradient effect underneath */
+.bg-slate-900, 
+div[className*="bg-slate-900"],
+section[className*="bg-slate-900"],
+.qf-card,
+aside,
+header {
+  background-color: rgba(255, 255, 255, 0.04) !important; /* Crystal clear glass opacity lets background colors glow through */
+  border: 1px solid rgba(255, 255, 255, 0.14) !important; /* Sharp, high-contrast framing borders */
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+/* High-contrast input slots, dropdown menus, and workbench areas */
+div[className*="bg-slate-950"],
+.bg-slate-950,
+input, select {
+  background-color: rgba(4, 5, 13, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #ffffff !important;
+}
+
+/* 🔓 FORCE EXTREME ACCESSIBILITY CONTRAST: Overwrites dim gray text utility rules across all labels and lists */
+.text-slate-400, [className*="text-slate-400"],
+.text-slate-500, [className*="text-slate-500"],
+.text-slate-600, [className*="text-slate-600"],
+span[className*="text-slate-"],
+div[className*="text-slate-"],
+p[className*="text-slate-"] {
+  color: #f1f5f9 !important; /* Converts all faded descriptions into solid high-contrast white text */
+  font-weight: 500 !important;
+}
+
+/* Force text elements inside data tables and headers to stand out cleanly */
+.text-slate-300, [className*="text-slate-300"],
+.text-slate-200, [className*="text-slate-200"],
+th, td, label {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+.font-display { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 800; letter-spacing: -0.02em; }
+.font-body { font-family: 'Satoshi', sans-serif; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-primary); }
+
+@keyframes qf-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 255, 148, 0.4); }
+  50% { opacity: 0.6; box-shadow: 0 0 0 8px rgba(0, 255, 148, 0); }
+}
+.qf-pulse-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--accent-success); animation: qf-pulse 2s infinite;
+}
+.qf-pulse-dot.warn { background: var(--accent-warning); animation: qf-pulse 1.5s infinite; }
+.qf-pulse-dot.dead { background: var(--accent-error); animation: qf-pulse 1s infinite; }
+
+
+
+div[className*="p-6 rounded-xl border border-slate-800 bg-slate-900"],
+section[className*="p-6 rounded-xl"],
+div.p-6.rounded-xl.border.border-slate-800.bg-slate-900,
+div.p-6.bg-slate-900.border.border-slate-800 {
+  background-color: rgba(255, 255, 255, 0.02) !important; /* Lowers the dark black thickness completely */
+  border: 1px solid rgba(255, 255, 255, 0.12) !important; /* Crisp transparent boundary lines */
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+}
