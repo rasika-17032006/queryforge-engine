@@ -46,7 +46,7 @@ uploads/
 *.db
 *.sqlite
 *.csv
-*.json
+
 
 # ====================================================================
 # SYSTEM CONFIGURATIONS & EDITOR ARTIFACTS
